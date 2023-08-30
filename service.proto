@@ -1,0 +1,20 @@
+syntax = "proto3";
+package your.service.v1;
+import "google/api/annotations.proto";
+option go_package = "github.com/makki0205/grpc_gateway/pkg/gateway/pb";
+
+message HelloReq{
+  string name = 1;
+}
+message HelloRes{
+  string msg = 1;
+}
+
+service TestService {
+  rpc Hello(HelloReq) returns (HelloRes) {
+    option (google.api.http) = {
+      post: "/v1/Hello"
+      body: "*"
+    };
+  }
+}
