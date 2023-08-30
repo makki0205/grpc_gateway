@@ -14,7 +14,7 @@ plugins:
     opt:
       - paths=source_relative
   - plugin: grpc-gateway-ts
-    out: frontend/generated
+    out: frontend/src/generated
     opt:
       - paths=source_relative
       - generate_rest_client=true
