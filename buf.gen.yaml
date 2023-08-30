@@ -13,3 +13,8 @@ plugins:
     out: pkg/gateway/pb
     opt:
       - paths=source_relative
+  - plugin: grpc-gateway-ts
+    out: frontend/generated
+    opt:
+      - paths=source_relative
+      - generate_rest_client=true
