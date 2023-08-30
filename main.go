@@ -6,6 +6,7 @@ import (
 	"github.com/golang/glog"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/makki0205/grpc_gateway/pkg/gateway/pb"
+	"github.com/rs/cors"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
@@ -46,9 +47,13 @@ func run() error {
 		return err
 	}
 
+	// Setup CORS
+	handler := cors.Default().Handler(mux)
+
 	// Start HTTP server (and proxy calls to gRPC server endpoint)
-	return http.ListenAndServe(":8081", mux)
+	return http.ListenAndServe(":8081", handler)
 }
+
 func CreateGRPCServer() {
 	// 1. 8080番portのLisnterを作成
 	port := 8080

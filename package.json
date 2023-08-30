@@ -1,0 +1,11 @@
+{
+  "name": "grpc_gateway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/makki0205/grpc_gateway.git",
+  "author": "kinokoruumu <kinokoruumu@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "protoc-gen-ts": "^0.8.6"
+  }
+}
